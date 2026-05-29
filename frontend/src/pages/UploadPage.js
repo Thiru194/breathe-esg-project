@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import axios from 'axios';
 
 function UploadPage() {
@@ -21,7 +22,7 @@ function UploadPage() {
                 sapFormData.append('file', sapFile);
 
                 await axios.post(
-                    'http://127.0.0.1:8000/api/upload-sap/',
+                    'https://breathe-esg-project-i6wa.onrender.com/api/upload-sap/',
                     sapFormData
                 );
             }
@@ -34,7 +35,7 @@ function UploadPage() {
                 utilityFormData.append('file', utilityFile);
 
                 await axios.post(
-                    'http://127.0.0.1:8000/api/upload-utility/',
+                    'https://breathe-esg-project-i6wa.onrender.com/api/upload-utility/',
                     utilityFormData
                 );
             }
@@ -47,12 +48,14 @@ function UploadPage() {
                 travelFormData.append('file', travelFile);
 
                 await axios.post(
-                    'http://127.0.0.1:8000/api/upload-travel/',
+                    'https://breathe-esg-project-i6wa.onrender.com/api/upload-travel/',
                     travelFormData
                 );
             }
 
             alert("All Files Uploaded Successfully");
+
+            window.location.href = "/dashboard";
 
         } catch (error) {
 
@@ -81,7 +84,6 @@ function UploadPage() {
                 <input
                     type="file"
                     className="form-control"
-
                     onChange={(e) =>
                         setSapFile(e.target.files[0])
                     }
@@ -100,7 +102,6 @@ function UploadPage() {
                 <input
                     type="file"
                     className="form-control"
-
                     onChange={(e) =>
                         setUtilityFile(e.target.files[0])
                     }
@@ -119,7 +120,6 @@ function UploadPage() {
                 <input
                     type="file"
                     className="form-control"
-
                     onChange={(e) =>
                         setTravelFile(e.target.files[0])
                     }
@@ -127,7 +127,7 @@ function UploadPage() {
 
             </div>
 
-            {/* Single Upload Button */}
+            {/* BUTTON */}
 
             <div className="text-center">
 

@@ -23,7 +23,7 @@ function Dashboard() {
         try {
 
             const res = await axios.get(
-                'http://127.0.0.1:8000/api/records/'
+                'https://breathe-esg-project-i6wa.onrender.com/api/records/'
             );
 
             setRecords(res.data);
@@ -45,7 +45,7 @@ function Dashboard() {
         try {
 
             await axios.patch(
-                `http://127.0.0.1:8000/api/approve/${id}/`
+                `https://breathe-esg-project-i6wa.onrender.com/api/approve/${id}/`
             );
 
             fetchRecords();
@@ -63,7 +63,7 @@ function Dashboard() {
         try {
 
             await axios.patch(
-                `http://127.0.0.1:8000/api/reject/${id}/`
+                `https://breathe-esg-project-i6wa.onrender.com/api/reject/${id}/`
             );
 
             fetchRecords();
@@ -81,7 +81,7 @@ function Dashboard() {
         try {
 
             await axios.patch(
-                `http://127.0.0.1:8000/api/lock/${id}/`
+                `https://breathe-esg-project-i6wa.onrender.com/api/lock/${id}/`
             );
 
             fetchRecords();
@@ -128,8 +128,6 @@ function Dashboard() {
         >
 
             <div className="container">
-
-                {/* HEADER */}
 
                 <div className="text-center mb-5">
 
@@ -205,19 +203,15 @@ function Dashboard() {
 
                 </div>
 
-                {/* SEARCH BAR */}
+                {/* SEARCH */}
 
                 <div className="card shadow border-0 mb-4 p-3">
 
                     <input
                         type="text"
-
                         className="form-control"
-
                         placeholder="Search Company Name..."
-
                         value={search}
-
                         onChange={(e) =>
                             setSearch(e.target.value)
                         }
@@ -288,7 +282,6 @@ function Dashboard() {
 
                                             <tr
                                                 key={item.id}
-
                                                 style={{
                                                     backgroundColor:
                                                         item.suspicious
@@ -309,8 +302,6 @@ function Dashboard() {
                                                     {item.category}
                                                 </td>
 
-                                                {/* STATUS */}
-
                                                 <td>
 
                                                     <span
@@ -326,8 +317,6 @@ function Dashboard() {
                                                     </span>
 
                                                 </td>
-
-                                                {/* SUSPICIOUS */}
 
                                                 <td>
 
@@ -347,8 +336,6 @@ function Dashboard() {
 
                                                 </td>
 
-                                                {/* LOCKED */}
-
                                                 <td>
 
                                                     {item.locked ? (
@@ -367,8 +354,6 @@ function Dashboard() {
 
                                                 </td>
 
-                                                {/* ACTIONS */}
-
                                                 <td>
 
                                                     {item.locked ? (
@@ -377,13 +362,12 @@ function Dashboard() {
                                                             Audit Locked
                                                         </span>
 
-                                                    ) : item.status === 'PENDING' ? (
+                                                    ) : (
 
                                                         <>
 
                                                             <button
                                                                 className="btn btn-success btn-sm"
-
                                                                 onClick={() =>
                                                                     handleApprove(item.id)
                                                                 }
@@ -393,7 +377,6 @@ function Dashboard() {
 
                                                             <button
                                                                 className="btn btn-danger btn-sm ms-2"
-
                                                                 onClick={() =>
                                                                     handleReject(item.id)
                                                                 }
@@ -403,7 +386,6 @@ function Dashboard() {
 
                                                             <button
                                                                 className="btn btn-dark btn-sm ms-2"
-
                                                                 onClick={() =>
                                                                     handleLock(item.id)
                                                                 }
@@ -412,18 +394,6 @@ function Dashboard() {
                                                             </button>
 
                                                         </>
-
-                                                    ) : (
-
-                                                        <button
-                                                            className="btn btn-dark btn-sm"
-
-                                                            onClick={() =>
-                                                                handleLock(item.id)
-                                                            }
-                                                        >
-                                                            Lock
-                                                        </button>
 
                                                     )}
 
